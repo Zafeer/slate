@@ -26,7 +26,7 @@ Id | Name
 --------- | -----------
 1 | Malhar
 2 | Manish
-3 | Aquib
+3 | Ashutosh
 
 
 # Challenges
