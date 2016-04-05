@@ -1,14 +1,12 @@
 ---
-title: API Reference
+title: Ion API Docs
 
 language_tabs:
   - shell
-  - ruby
+  - javascript
   - python
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
   - errors
@@ -18,55 +16,31 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Ion API! You can use our API to access Ion API endpoints, which can get information on various challenges, progress,rewards and recommendations in our database.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+We have language bindings in Shell, Java, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+### Sample Data:
 
-# Authentication
+Id | Name
+--------- | -----------
+1 | Malhar
+2 | Manish
+3 | Aquib
 
-> To authorize, use this code:
 
-```ruby
-require 'kittn'
+# Challenges
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+## Add or Update User
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+```javascript
+ $.ajax({
+    url: "/add_or_update_user/1",
+    dataType: "json",
+    type : "POST",
+    success : function(r) {
+    }
+  });
 ```
 
 ```python
@@ -106,63 +80,51 @@ This endpoint retrieves all kittens.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST /add_or_update_user/:userId`
 
-### Query Parameters
+### Url Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+Parameter | Default | Required | Type | Description
+--------- | ------- | -------- | ---- | -----------
+userId |  | False | String | User Id of User DB. If userId is blank creates new user else takes the user according to id
+
+
+### Data Parameters
+
+Parameter | Default | Required | Type | Description
+--------- | ------- | -------- | ---- | -----------
+lat |  | False | Float | Latitude of User for geo targeting
+lon |  | False | Float | Longitude of User for geo targeting
+country |  | False | String | Country of User
+city |  | False | String | City of User
+region |  | False | String | Region of User
+friends |  | False | List of user Ids | Friends of User
+groups |  | False | List of group Ids | Groups of User
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+Content: { "achievements": {}, "achievement_errors": {} } \n
+OR \n
+Content:{
+  "achievements": {
+    "1": {
+      "levels_achieved": {
+        "1": "2016-04-02T12:10:52.901076"
+      },
+      "achievementcategory": "",
+      "level": 1,
+      "new_levels": {
+        "1": {
+          "rewards": {},
+          "properties": {},
+          "level": 1
+        }
+      },
+      "internal_name": "invite_users",
+      "hidden": false,
+      "maxlevel": 1,
+      "id": 1
+    }
+  },
+  "achievement_errors": {}
 }
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
+</aside>
