@@ -3,6 +3,7 @@ title: Ion API Docs
 
 language_tabs:
   - shell
+---
 
 # Introduction
 
