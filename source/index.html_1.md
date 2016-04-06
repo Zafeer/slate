@@ -5,8 +5,6 @@ language_tabs:
   - shell
   - javascript
 
-toc_footers:
-
 includes:
   - errors
 
