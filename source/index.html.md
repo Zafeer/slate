@@ -26,7 +26,7 @@ Id | Name | Email
 ##Get Random Event
 
 ```shell
-curl -i -X POST http://54.255.165.21:2021/services/get_randomevent
+curl -i -X POST http://54.85.251.3:1338/services/get_randomevent
 ```
 
 > The above command returns JSON structured like this:
@@ -53,7 +53,7 @@ curl -i -X POST http://54.255.165.21:2021/services/get_randomevent
 ##Create Event
 
 ```shell
-curl -i -X POST http://54.255.165.21:2021/services/create_event/57054e1bba521b36361aeca2 -d '{"value" : 11}'
+curl -i -X POST http://54.85.251.3:1338/services/create_event/57054e1bba521b36361aeca2 -d '{"value" : 11}'
 ```
 
 > The above command returns JSON structured like this:
@@ -136,7 +136,7 @@ metric | steps  | False | String | Measurement Value
 ##Get Events
 
 ```shell
-curl -i -X POST http://54.255.165.21:2021/services/get_events
+curl -i -X POST http://54.85.251.3:1338/services/get_events
 ```
 
 > The above command returns JSON structured like this:
@@ -168,7 +168,7 @@ username |  | True | String | username of User DB.
 ##Create Goal
 
 ```shell
-curl -H "Content-Type: application/json" -d  '{}'  http://127.0.0.1:1337/services/create_goal
+curl -H "Content-Type: application/json" -d  '{}'  http://54.85.251.3:1338/services/create_goal
 ```
 
 > The above command returns JSON structured like this:
@@ -222,7 +222,7 @@ achievement |  | False | String | achievement Id.
 ##Search Goals
 
 ```shell
-curl -H "Content-Type: application/json" -d  '{}'  http://127.0.0.1:1337/services/search_goals
+curl -H "Content-Type: application/json" -d  '{}'  http://54.85.251.3:1338/services/search_goals
 ```
 
 > The above command returns JSON structured like this:
@@ -274,7 +274,7 @@ username |  | True | String | username of User DB.
 ##Get Users To Challenge
 
 ```shell
-curl -i -X POST http://54.255.165.21:2021/services/get_users_to_challenge
+curl -i -X POST http://54.85.251.3:1338/services/get_users_to_challenge
 ```
 
 > The above command returns JSON structured like this:
@@ -329,7 +329,7 @@ username |  | True | String | username of User DB.
 ##Get Challenges
 
 ```shell
-curl -i -X POST http://54.255.165.21:2021/services/get_challenges
+curl -i -X POST http://54.85.251.3:1338/services/get_challenges
 ```
 
 > The above command returns JSON structured like this:
@@ -550,7 +550,7 @@ username |  | True | String | username of User DB.
 ##Get Active Challenges
 
 ```shell
-curl -i -X POST http://54.255.165.21:2021/services/get_activeChallenges
+curl -i -X POST http://54.85.251.3:1338/services/get_activeChallenges
 ```
 
 > The above command returns JSON structured like this:
@@ -586,7 +586,7 @@ username |  | True | String | username of User DB.
 ##Get Challenges To Me
 
 ```shell
-curl -i -X POST http://54.255.165.21:2021/services/get_challengesToMe
+curl -i -X POST http://54.85.251.3:1338/services/get_challengesToMe
 ```
 
 > The above command returns JSON structured like this:
@@ -669,7 +669,7 @@ username |  | True | String | username of User DB.
 ##Get Challenges By Me
 
 ```shell
-curl -i -X POST http://54.255.165.21:2021/services/get_challengesByMe
+curl -i -X POST http://54.85.251.3:1338/services/get_challengesByMe
 ```
 
 > The above command returns JSON structured like this:
@@ -744,7 +744,7 @@ username |  | True | String | username of User DB.
 ##Accept Challenge
 
 ```shell
-curl -i -X POST http://54.255.165.21:2021/services/accept_challenge/57054e1bba521b36361aeca2/571733c73b049866bbeb7bde
+curl -i -X POST http://54.85.251.3:1338/services/accept_challenge/57054e1bba521b36361aeca2/571733c73b049866bbeb7bde
 ```
 
 > The above command returns JSON structured like this:
@@ -774,7 +774,7 @@ challenge_id |  | True | String | Challenge Id.
 ##Get Challenge Progress
 
 ```shell
-curl -i -X POST http://54.255.165.21:2021/services/get_challenge_progress/57054e1bba521b36361aeca2/571733c73b049866bbeb7bde
+curl -i -X POST http://54.85.251.3:1338/services/get_challenge_progress/57054e1bba521b36361aeca2/571733c73b049866bbeb7bde
 ```
 
 > The above command returns JSON structured like this:
@@ -848,7 +848,7 @@ challenge_id |  | True | String | Challenge Id.
 ##Get Challenges History
 
 ```shell
-curl -i -X POST http://54.255.165.21:2021/services/get_challengesHistory
+curl -i -X POST http://54.85.251.3:1338/services/get_challengesHistory
 ```
 
 > The above command returns JSON structured like this:
@@ -1062,7 +1062,7 @@ username |  | True | String | username of User DB.
 ##Create Challenge
 
 ```shell
-curl -H "Content-Type: application/json" -d  '{"users" : [] , "status":"A","accomplished":"U","goal":"1"}'  http://127.0.0.1:1337/services/create_challenge
+curl -H "Content-Type: application/json" -d  '{"users" : [] , "status":"A","accomplished":"U","goal":"1"}'  http://54.85.251.3:1338/services/create_challenge
 ```
 
 > The above command returns JSON structured like this:
@@ -1102,7 +1102,7 @@ expireAt| Expire Time  | False | String | When is the Challenge Ending
 ##Create Achievement
 
 ```shell
-curl -i -X POST http://127.0.0.1:1337/services/create_achievement
+curl -i -X POST http://54.85.251.3:1338/services/create_achievement
 ```
 
 > The above command returns JSON structured like this:
@@ -1144,7 +1144,7 @@ userId |  | True | String | username of User DB.
 ##Get Finished Achievements
 
 ```shell
-curl -H "Content-Type: application/json" -d  '{"username":"zafeer"}'  http://127.0.0.1:1337/services/get_achievements
+curl -H "Content-Type: application/json" -d  '{"username":"zafeer"}'  http://54.85.251.3:1338/services/get_achievements
 ```
 
 > The above command returns JSON structured like this:
@@ -1172,7 +1172,7 @@ username |  | True | String | username of User DB.
 ##Create User
 
 ```shell
-(echo -n '{"username":"zafeer","phone":"9823218492","password":"password","image1": "'; base64 /opt/health/images/kate.jpg; echo '"}') |curl -H "Content-Type: application/json" -d  @-  http://127.0.0.1:1337/services/create_user
+(echo -n '{"username":"zafeer","phone":"9823218492","password":"password","image1": "'; base64 /opt/health/images/kate.jpg; echo '"}') |curl -H "Content-Type: application/json" -d  @-  http://54.85.251.3:1338/services/create_user
 ```
 
 > The above command returns JSON structured like this:
@@ -1187,7 +1187,7 @@ username |  | True | String | username of User DB.
     "createdAt": "2016-07-16T08:03:06.778Z",
     "updatedAt": "2016-07-16T08:03:06.778Z",
     "id": 1,
-    "avatarUrl": "http://localhost:1337/images/avatar/zafeer.jpg"
+    "avatarUrl": "http://54.85.251.3:1338/images/avatar/zafeer.jpg"
   }
 }
 
@@ -1228,7 +1228,7 @@ username |  | True | String | username.
 ##Update User
 
 ```shell
-curl -H "Content-Type: application/json" -d  '{"username":"zafeer","school":"St Marys"}'  http://127.0.0.1:1337/services/update_user
+curl -H "Content-Type: application/json" -d  '{"username":"zafeer","school":"St Marys"}'  http://54.85.251.3:1338/services/update_user
 ```
 
 > The above command returns JSON structured like this:
@@ -1245,7 +1245,7 @@ curl -H "Content-Type: application/json" -d  '{"username":"zafeer","school":"St 
       "updatedAt": "2016-07-16T09:26:11.344Z",
       "id": 1,
       "school": "St Marys",
-      "avatarUrl": "http://localhost:1337/images/avatar/zafeer.jpg"
+      "avatarUrl": "http://54.85.251.3:1338/images/avatar/zafeer.jpg"
     }
   ]
 }
@@ -1278,7 +1278,7 @@ username |  | True | String | username of User DB.
 ##Get Profile
 
 ```shell
-curl -i -X POST http://54.255.165.21:2021/services/get_profile/57054e1bba521b36361aeca2
+curl -i -X POST http://54.85.251.3:1338/services/get_profile/57054e1bba521b36361aeca2
 ```
 
 > The above command returns JSON structured like this:
@@ -1301,7 +1301,7 @@ curl -i -X POST http://54.255.165.21:2021/services/get_profile/57054e1bba521b363
       "next": 0
     },
     "rewards": [],
-    "avatarUrl": "http://localhost:1337/images/avatar/zafeer.jpg"
+    "avatarUrl": "http://54.85.251.3:1338/images/avatar/zafeer.jpg"
   }
 }%
 ```
@@ -1323,7 +1323,7 @@ username |  | True | String | username of User DB.
 ##Check Name
 
 ```shell
-curl -H "Content-Type: application/json" -d  '{"username":"zafeer"}'  http://127.0.0.1:1337/services/checkName
+curl -H "Content-Type: application/json" -d  '{"username":"zafeer"}'  http://54.85.251.3:1338/services/checkName
 ```
 
 > The above command returns JSON structured like this:
@@ -1363,27 +1363,32 @@ username |  | True | String | username of User DB.
 ##Get Friends
 
 ```shell
-curl -H "Content-Type: application/json" -d  '{"username":"zafeer"}'  http://127.0.0.1:1337/services/get_friends
+curl -H "Content-Type: application/json" -d  '{"username":"zafeer"}'  http://54.85.251.3:1338/services/get_friends
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "username": "zafeerlaw",
-    "phone": "9823218492",
-    "createdAt": "2016-07-15T07:49:12.390Z",
-    "updatedAt": "2016-07-15T07:49:12.390Z",
-    "id": 2,
-    "avatarUrl": "http://localhost:1337/images/avatar/zafeerlaw.jpg"
-  }
-]
+{
+  "status": 0,
+  "message": "Friends Fetched Successfully",
+  "bytes": [
+    {
+      "username": "manish",
+      "phone": "9823218492",
+      "createdAt": "2016-07-16T12:28:35.059Z",
+      "updatedAt": "2016-07-16T12:28:35.059Z",
+      "id": 2,
+      "steps": 100,
+      "avatarUrl": "http://localhost:1337/images/avatar/manish.jpg"
+    }
+  ]
+}
 ```
 
 ### HTTP Request
 
-`curl -H "Content-Type: application/json" -d  '{"username":"zafeer"}'  http://127.0.0.1:1337/services/get_friends`
+`curl -H "Content-Type: application/json" -d  '{"username":"zafeer"}'  http://54.85.251.3:1338/services/get_friends`
 
 ### Url Parameters
 Parameter | Default | Required | Type | Description
@@ -1397,7 +1402,7 @@ username |  | True | String | User Name of User DB.
 ##Get School
 
 ```shell
-curl -H "Content-Type: application/json" -d  '{"school":"Bishops School"}'  http://127.0.0.1:1337/services/getSchool
+curl -H "Content-Type: application/json" -d  '{"school":"Bishops School"}'  http://54.85.251.3:1338/services/getSchool
 ```
 
 > The above command returns JSON structured like this:
@@ -1617,7 +1622,7 @@ school |  | True | String | schoolName to search
 ##Get LeaderBoard
 
 ```shell
-curl -H "Content-Type: application/json" -d  '{}'  http://127.0.0.1:1337/services/getLeaderBoard
+curl -H "Content-Type: application/json" -d  '{}'  http://54.85.251.3:1338/services/getLeaderBoard
 ```
 
 > The above command returns JSON structured like this:
@@ -1635,7 +1640,7 @@ curl -H "Content-Type: application/json" -d  '{}'  http://127.0.0.1:1337/service
       "id": 1,
       "school": "St Marys",
       "steps": 100,
-      "avatarUrl": "http://localhost:1337/images/avatar/zafeer.jpg"
+      "avatarUrl": "http://54.85.251.3:1338/images/avatar/zafeer.jpg"
     }
   ]
 }
@@ -1662,8 +1667,8 @@ username |  | True | String | username of User DB.
 ##Add Friend
 
 ```shell
-curl -H "Content-Type: application/json" -d  '{"text":"zaf","type":"user"}'  http://127.0.0.1:1337/services/search_friends
-curl -H "Content-Type: application/json" -d  '{"text":"St Marys","type":"school"}'  http://127.0.0.1:1337/services/search_friends
+curl -H "Content-Type: application/json" -d  '{"text":"zaf","type":"user"}'  http://54.85.251.3:1338/services/search_friends
+curl -H "Content-Type: application/json" -d  '{"text":"St Marys","type":"school"}'  http://54.85.251.3:1338/services/search_friends
 ```
 
 > The above command returns JSON structured like this:
@@ -1680,7 +1685,7 @@ curl -H "Content-Type: application/json" -d  '{"text":"St Marys","type":"school"
       "updatedAt": "2016-07-16T10:00:01.024Z",
       "id": 1,
       "school": "St Marys",
-      "avatarUrl": "http://localhost:1337/images/avatar/zafeer.jpg"
+      "avatarUrl": "http://54.85.251.3:1338/images/avatar/zafeer.jpg"
     }
   ]
 }
@@ -1715,7 +1720,7 @@ type |  | True | String | 'user' or 'school'
 ##Get Feed
 
 ```shell
-curl -i -X POST http://54.255.165.21:2021/services/get_feed/57054e1bba521b36361aeca2
+curl -i -X POST http://54.85.251.3:1338/services/get_feed/57054e1bba521b36361aeca2
 ```
 
 > The above command returns JSON structured like this:
