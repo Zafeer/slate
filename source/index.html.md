@@ -683,6 +683,15 @@ OR
   "message": "Challenges By Me Fetched Successfully",
   "bytes": [
     {
+      "user_challenged": {
+        "username": "manish",
+        "fullname": "Manish Law",
+        "phone": "9823218492",
+        "createdAt": "2016-07-17T11:40:49.047Z",
+        "updatedAt": "2016-07-17T11:40:49.047Z",
+        "id": 2,
+        "avatarUrl": "http://localhost:1337/images/avatar/manish.jpg"
+      },
       "goal": {
         "tracking_variable": "steps",
         "type_of_goal": "S",
@@ -690,21 +699,63 @@ OR
         "condition": 100,
         "text": "Reach a target",
         "achievement": 1,
-        "createdAt": "2016-07-16T12:33:52.239Z",
-        "updatedAt": "2016-07-16T12:33:52.239Z",
+        "createdAt": "2016-07-17T11:44:15.554Z",
+        "updatedAt": "2016-07-17T11:44:15.554Z",
         "id": 1
+      },
+      "created_by": {
+        "username": "zafeer",
+        "fullname": "Zafeer Molai",
+        "phone": "9823218492",
+        "createdAt": "2016-07-17T11:40:27.274Z",
+        "updatedAt": "2016-07-17T11:40:27.274Z",
+        "id": 1,
+        "avatarUrl": "http://localhost:1337/images/avatar/zafeer.jpg"
       },
       "status": "P",
       "accomplished": "U",
-      "created_by": "zafeer",
-      "createdAt": "2016-07-16T12:29:32.654Z",
-      "users": [
-        "zafeer",
-        "manish"
-      ],
-      "startingAt": "2016-07-16T12:29:28.636Z",
-      "expireAt": "2016-07-16T12:29:28.636Z",
-      "updatedAt": "2016-07-16T12:29:32.667Z",
+      "createdAt": "2016-07-17T11:41:43.640Z",
+      "startingAt": "2016-07-17T11:40:04.154Z",
+      "expireAt": "2016-07-17T11:40:04.154Z",
+      "updatedAt": "2016-07-17T11:41:43.666Z",
+      "id": 1
+    },
+    {
+      "user_challenged": {
+        "username": "manish",
+        "fullname": "Manish Law",
+        "phone": "9823218492",
+        "createdAt": "2016-07-17T11:40:49.047Z",
+        "updatedAt": "2016-07-17T11:40:49.047Z",
+        "id": 2,
+        "avatarUrl": "http://localhost:1337/images/avatar/manish.jpg"
+      },
+      "goal": {
+        "tracking_variable": "steps",
+        "type_of_goal": "S",
+        "generated_by": "S",
+        "condition": 100,
+        "text": "Reach a target",
+        "achievement": 1,
+        "createdAt": "2016-07-17T11:44:15.554Z",
+        "updatedAt": "2016-07-17T11:44:15.554Z",
+        "id": 1
+      },
+      "created_by": {
+        "username": "zafeer",
+        "fullname": "Zafeer Molai",
+        "phone": "9823218492",
+        "createdAt": "2016-07-17T11:40:27.274Z",
+        "updatedAt": "2016-07-17T11:40:27.274Z",
+        "id": 1,
+        "avatarUrl": "http://localhost:1337/images/avatar/zafeer.jpg"
+      },
+      "status": "P",
+      "accomplished": "U",
+      "createdAt": "2016-07-17T11:44:30.088Z",
+      "startingAt": "2016-07-17T11:43:03.983Z",
+      "expireAt": "2016-07-17T11:43:03.983Z",
+      "updatedAt": "2016-07-17T11:44:30.111Z",
       "id": 2
     }
   ]
@@ -923,7 +974,7 @@ username |  | True | String | username of User DB.
 ##Create Challenge
 
 ```shell
-curl -H "Content-Type: application/json" -d  '{"users" : [] , "status":"A","accomplished":"U","goal":"1"}'  http://54.85.251.3:1338/services/create_challenge
+curl -H "Content-Type: application/json" -d  '{"user_challenged" : ["manish"],"status":"P","accomplished":"U","goal":"1","username":"zafeer"}'  http://127.0.0.1:1337/services/create_challenge
 ```
 
 > The above command returns JSON structured like this:
@@ -950,12 +1001,14 @@ Parameter | Default | Required | Type | Description
 ### Data Parameters
 Parameter | Default | Required | Type | Description
 --------- | ------- | -------- | ---- | -----------
-users |  | True | List | List of User/Users to CompeteWith
-status | A/P  | False | Enum | Active or Inactive
+username |  | True | String | User Competing
+user_challenged |  | True | String | User to CompeteWith
+status | A/P  | False | Enum | Accept/Reject/Pending/Finished/Live
 goal |  | True | Id | Id of goal
-accomplished| F/U  | False | Enum | Goal Reached or Not
+accomplished| F/U  | False | Enum | Goal Reached or Not (Finished/Unfinished)
 createdAt| Current Time  | False | String | When is the Challenge Starting
-expireAt| Expire Time  | False | String | When is the Challenge Ending
+expireAt| Expire Time  | False | String | When is the Challenge Ending.By default Current Time
+winner| Who Won  | False | String | Who Won the Challenge if Finished
 
 
 #Achievements
@@ -1033,7 +1086,7 @@ username |  | True | String | username of User DB.
 ##Create User
 
 ```shell
-(echo -n '{"username":"zafeer","phone":"9823218492","password":"password","image1": "'; base64 /opt/health/images/kate.jpg; echo '"}') |curl -H "Content-Type: application/json" -d  @-  http://54.85.251.3:1338/services/create_user
+(echo -n '{"username":"zafeer","fullname":"Zafeer Molai","phone":"9823218492","password":"password","image1": "'; base64 /opt/health/images/kate.jpg; echo '"}') |curl -H "Content-Type: application/json" -d  @-  http://127.0.0.1:1337/services/create_user
 ```
 
 > The above command returns JSON structured like this:
@@ -1084,6 +1137,7 @@ Parameter | Default | Required | Type | Description
 Parameter | Default | Required | Type | Description
 --------- | ------- | -------- | ---- | -----------
 username |  | True | String | username.
+fullname |  | True | String | fullname.
 password |  | True | String | password of user.
 phone    |  | True | String | mobile no.
 image1   |  | True | Base 64 Image | Base 64 Image.
@@ -1241,11 +1295,13 @@ curl -H "Content-Type: application/json" -d  '{"username":"zafeer"}'  http://54.
   "bytes": [
     {
       "username": "manish",
+      "fullname": "Manish Law",
       "phone": "9823218492",
-      "createdAt": "2016-07-16T12:28:35.059Z",
-      "updatedAt": "2016-07-16T12:28:35.059Z",
+      "createdAt": "2016-07-17T11:40:49.047Z",
+      "updatedAt": "2016-07-17T11:40:49.047Z",
       "id": 2,
       "steps": 100,
+      "maxLimit": 1000,
       "avatarUrl": "http://localhost:1337/images/avatar/manish.jpg"
     }
   ]
