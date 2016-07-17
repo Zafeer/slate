@@ -595,65 +595,59 @@ curl -i -X POST http://54.85.251.3:1338/services/get_challengesToMe
 
 {
   "status": 0,
-  "message": "Challenges By To Fetched Successfully",
+  "message": "Challenges To Me Fetched Successfully",
   "bytes": []
 }
 
 OR
 
 {
-   "status":0,
-   "message":"Active Challenges Fetched Successfully",
-   "bytes":[
-      {
-         "status":"A",
-         "users":[
-            {
-               "username":"2309331269",
-               "name":"Manish Law",
-               "is_active":true,
-               "id":"57054e1bba521b36361aeca2",
-               "created_on":"2016-04-20T13:15:57.143000",
-               "last_login":"2016-04-20T07:46:15.003000",
-               "email":"manishlaw@gmail.com",
-               "date_joined":"2016-04-20T07:46:15.003000"
-            }
-         ],
-         "expireAt":"9999-12-31T23:59:59.999000",
-         "startingAt":"2016-04-20T13:15:57.144000",
-         "created_on":"2016-04-20T13:15:57.144000",
-         "created_by":{
-            "username":"2099003318",
-            "name":"Public User",
-            "is_active":true,
-            "id":"57054e1bba521b36361aeca1",
-            "created_on":"2016-04-20T13:15:57.143000",
-            "last_login":"2016-04-20T07:46:14.830000",
-            "email":"public@gmail.com",
-            "date_joined":"2016-04-20T07:46:14.831000"
-         },
-         "accomplished":"U",
-         "id":"571733c73b049866bbeb7bde",
-         "goal":{
-            "tracking_variable":"steps",
-            "generated_by":"S",
-            "type_of_goal":"S",
-            "condition":100,
-            "id":"5706b3553b04987ef7d88278",
-            "achievement":{
-               "id":"571733c73b049866bbeb7bdb",
-               "name":"Bronze"
-            }
-         }
-      }
-   ]
+  "status": 0,
+  "message": "Challenges To Me Fetched Successfully",
+  "bytes": [
+    {
+      "goal": {
+        "tracking_variable": "steps",
+        "type_of_goal": "S",
+        "generated_by": "S",
+        "condition": 100,
+        "text": "Reach a target",
+        "achievement": 1,
+        "createdAt": "2016-07-16T12:33:52.239Z",
+        "updatedAt": "2016-07-16T12:33:52.239Z",
+        "id": 1
+      },
+      "status": "P",
+      "accomplished": "U",
+      "created_by": "zafeer",
+      "createdAt": "2016-07-16T12:29:32.654Z",
+      "users": [
+        "zafeer",
+        "manish"
+      ],
+      "startingAt": "2016-07-16T12:29:28.636Z",
+      "expireAt": "2016-07-16T12:29:28.636Z",
+      "updatedAt": "2016-07-16T12:29:32.667Z",
+      "id": 2
+    }
+  ]
 }
+
+OR
+
+
+{  
+   "status":1,
+   "message":"Error in Getting Challenges To Me!!",
+   "bytes":""
+}
+
 
 ```
 
 ### HTTP Request
 
-`POST /services/get_challengesToMe/:userId`
+`POST /services/get_challengesToMe`
 
 ### Url Parameters
 Parameter | Default | Required | Type | Description
@@ -735,16 +729,16 @@ OR
 Parameter | Default | Required | Type | Description
 --------- | ------- | -------- | ---- | -----------
 
-### Url Parameters
+### Data Parameters
 Parameter | Default | Required | Type | Description
 --------- | ------- | -------- | ---- | -----------
 username |  | True | String | username of User DB.
 
 
-##Accept Challenge
+##Update Challenge
 
 ```shell
-curl -i -X POST http://54.85.251.3:1338/services/accept_challenge/57054e1bba521b36361aeca2/571733c73b049866bbeb7bde
+curl -i -X POST http://54.85.251.3:1338/services/update_challenge
 ```
 
 > The above command returns JSON structured like this:
@@ -753,7 +747,7 @@ curl -i -X POST http://54.85.251.3:1338/services/accept_challenge/57054e1bba521b
 
 {
    "status":0,
-   "message":"Challenge Accepted Successfully",
+   "message":"Challenge Updated Successfully",
    "bytes":[
 
    ]
@@ -763,13 +757,18 @@ curl -i -X POST http://54.85.251.3:1338/services/accept_challenge/57054e1bba521b
 
 ### HTTP Request
 
-`POST /services/accept_challenge/:userId/:challenge_id`
+`POST /services/update_challenge`
 
 ### Url Parameters
 Parameter | Default | Required | Type | Description
 --------- | ------- | -------- | ---- | -----------
-userId |  | True | String | username of User DB.
-challenge_id |  | True | String | Challenge Id.
+
+### Data Parameters
+Parameter | Default | Required | Type | Description
+--------- | ------- | -------- | ---- | -----------
+id |  | True | String | Challenge Id.
+status | |True|Enum | 'A'/'R'/'P'/'F' | Accept/Reject/Pending/Finished
+
 
 ##Get Challenge Progress
 
@@ -1223,7 +1222,12 @@ Parameter | Default | Required | Type | Description
 Parameter | Default | Required | Type | Description
 --------- | ------- | -------- | ---- | -----------
 username |  | True | String | username.
-
+password |  | True | String | password of user.
+phone    |  | True | String | mobile no.
+image1   |  | True | Base 64 Image | Base 64 Image.
+weight   |  | True | String | Weight of User
+height   |  | True | String | Height of User
+school   |  | True | String | School of User
 
 ##Update User
 
@@ -1272,13 +1276,13 @@ Parameter | Default | Required | Type | Description
 ### Data Parameters
 Parameter | Default | Required | Type | Description
 --------- | ------- | -------- | ---- | -----------
-username |  | True | String | username of User DB.
-
+username |  | True | String | username of User DB to upate
+variant  |  | False | variant | any other parameter accepted
 
 ##Get Profile
 
 ```shell
-curl -i -X POST http://54.85.251.3:1338/services/get_profile/57054e1bba521b36361aeca2
+curl -i -X POST http://54.85.251.3:1338/services/get_profile
 ```
 
 > The above command returns JSON structured like this:
@@ -1303,7 +1307,7 @@ curl -i -X POST http://54.85.251.3:1338/services/get_profile/57054e1bba521b36361
     "rewards": [],
     "avatarUrl": "http://54.85.251.3:1338/images/avatar/zafeer.jpg"
   }
-}%
+}
 ```
 
 ### HTTP Request
@@ -1664,7 +1668,7 @@ Parameter | Default | Required | Type | Description
 --------- | ------- | -------- | ---- | -----------
 username |  | True | String | username of User DB.
 
-##Add Friend
+##Search Friends
 
 ```shell
 curl -H "Content-Type: application/json" -d  '{"text":"zaf","type":"user"}'  http://54.85.251.3:1338/services/search_friends
@@ -1720,7 +1724,7 @@ type |  | True | String | 'user' or 'school'
 ##Get Feed
 
 ```shell
-curl -i -X POST http://54.85.251.3:1338/services/get_feed/57054e1bba521b36361aeca2
+curl -i -X POST http://54.85.251.3:1338/services/get_feed
 ```
 
 > The above command returns JSON structured like this:
@@ -1746,12 +1750,12 @@ curl -i -X POST http://54.85.251.3:1338/services/get_feed/57054e1bba521b36361aec
 
 ### HTTP Request
 
-`POST /services/get_feed/:userId`
+`POST /services/get_feed`
 
 ### Url Parameters
 Parameter | Default | Required | Type | Description
 --------- | ------- | -------- | ---- | -----------
-userId |  | True | String | username of User DB.
+username |  | True | String | username of User DB.
 
 
 
