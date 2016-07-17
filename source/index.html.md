@@ -1006,7 +1006,7 @@ user_challenged |  | True | String | User to CompeteWith
 status | A/P  | False | Enum | Accept/Reject/Pending/Finished/Live
 goal |  | True | Id | Id of goal
 accomplished| F/U  | False | Enum | Goal Reached or Not (Finished/Unfinished)
-createdAt| Current Time  | False | String | When is the Challenge Starting
+startingAt| Current Time  | False | String | When is the Challenge Starting
 expireAt| Expire Time  | False | String | When is the Challenge Ending.By default Current Time
 winner| Who Won  | False | String | Who Won the Challenge if Finished
 
@@ -1243,7 +1243,7 @@ username |  | True | String | username of User DB.
 ##Check Name
 
 ```shell
-curl -H "Content-Type: application/json" -d  '{"username":"zafeer"}'  http://54.85.251.3:1338/services/checkName
+curl -H "Content-Type: application/json" -d  '{"username":"zafeer"}'  http://127.0.0.1:1337/services/search_name
 ```
 
 > The above command returns JSON structured like this:
@@ -1266,7 +1266,7 @@ OR
 
 ### HTTP Request
 
-`POST /services/checkName`
+`POST /services/search_name`
 
 ### Url Parameters
 Parameter | Default | Required | Type | Description
@@ -1324,7 +1324,7 @@ username |  | True | String | User Name of User DB.
 ##Get School
 
 ```shell
-curl -H "Content-Type: application/json" -d  '{"school":"Bishops School"}'  http://54.85.251.3:1338/services/getSchool
+curl -H "Content-Type: application/json" -d  '{"school":"Bishops School"}'  http://54.85.251.3:1338/services/get_school
 ```
 
 > The above command returns JSON structured like this:
@@ -1529,7 +1529,7 @@ OR
 
 ### HTTP Request
 
-`POST /services/getSchool`
+`POST /services/get_school`
 
 ### Url Parameters
 Parameter | Default | Required | Type | Description
@@ -1544,7 +1544,7 @@ school |  | True | String | schoolName to search
 ##Get LeaderBoard
 
 ```shell
-curl -H "Content-Type: application/json" -d  '{}'  http://54.85.251.3:1338/services/getLeaderBoard
+curl -H "Content-Type: application/json" -d  '{}'  http://54.85.251.3:1338/services/get_leaderBoard
 ```
 
 > The above command returns JSON structured like this:
@@ -1575,7 +1575,7 @@ OR
 
 ### HTTP Request
 
-`POST /services/getLeaderBoard`
+`POST /services/get_leaderBoard`
 
 ### Url Parameters
 Parameter | Default | Required | Type | Description
