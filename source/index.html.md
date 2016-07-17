@@ -120,16 +120,16 @@ OR
 
 ### HTTP Request
 
-`POST /services/services/create_event/:userId`
+`POST /services/services/create_event`
 
 ### Url Parameters
 Parameter | Default | Required | Type | Description
 --------- | ------- | -------- | ---- | -----------
-userId |  | True | String | username of User DB. 
 
 ### Data Parameters
 Parameter | Default | Required | Type | Description
 --------- | ------- | -------- | ---- | -----------
+username |  | True | String | username of User DB. 
 value |  | True | Integer | Value of steps 
 metric | steps  | False | String | Measurement Value
 
@@ -1047,12 +1047,17 @@ OR
 
 ### HTTP Request
 
-`POST /services/get_achievements/:userId`
+`POST /services/get_achievements`
 
 ### Url Parameters
 Parameter | Default | Required | Type | Description
 --------- | ------- | -------- | ---- | -----------
 userId |  | True | String | username of User DB.
+
+### Data Parameters
+Parameter | Default | Required | Type | Description
+--------- | ------- | -------- | ---- | -----------
+username |  | True | String | username of User DB.
 
 
 ##Get Finished Achievements
@@ -1649,20 +1654,49 @@ curl -i -X POST http://54.85.251.3:1338/services/get_feed
 
 ```json
 {
-   "status":0,
-   "message":"Challenges Feed Fetched Successfully",
-   "bytes":[
-      {
-         "text":"Challenge Currently in Progress",
-         "type":"challenge",
-         "id":"571733c73b049866bbeb7bde"
+  "status": 0,
+  "message": "Feed Fetched Successfully",
+  "bytes": [
+    {
+      "user_challenged": {
+        "username": "manish",
+        "fullname": "Manish Law",
+        "phone": "9823218492",
+        "createdAt": "2016-07-17T12:05:40.050Z",
+        "updatedAt": "2016-07-17T12:05:40.050Z",
+        "id": 2,
+        "avatarUrl": "http://localhost:1337/images/avatar/manish.jpg"
       },
-      {
-         "text":"Challenge Currently in Progress",
-         "type":"challenge",
-         "id":"5719debf3b04984bc6984e07"
-      }
-   ]
+      "goal": {
+        "tracking_variable": "steps",
+        "type_of_goal": "S",
+        "generated_by": "S",
+        "condition": 100,
+        "text": "Reach a target",
+        "achievement": 1,
+        "createdAt": "2016-07-17T12:08:28.309Z",
+        "updatedAt": "2016-07-17T12:08:28.309Z",
+        "id": 1
+      },
+      "created_by": {
+        "username": "zafeer",
+        "fullname": "Zafeer Molai",
+        "phone": "9823218492",
+        "createdAt": "2016-07-17T12:05:26.398Z",
+        "updatedAt": "2016-07-17T12:05:26.398Z",
+        "id": 1,
+        "avatarUrl": "http://localhost:1337/images/avatar/zafeer.jpg"
+      },
+      "status": "P",
+      "accomplished": "U",
+      "createdAt": "2016-07-17T12:08:52.190Z",
+      "startingAt": "2016-07-17T12:05:23.259Z",
+      "expireAt": "2016-07-17T12:05:23.259Z",
+      "updatedAt": "2016-07-17T12:08:52.206Z",
+      "id": 1,
+      "type": "challenge"
+    }
+  ]
 }
 ```
 
