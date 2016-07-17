@@ -853,6 +853,7 @@ curl -i -X POST http://54.85.251.3:1338/services/get_challengesHistory
 > The above command returns JSON structured like this:
 
 ```json
+
 {
   "status": 0,
   "message": "Challenges History Fetched Successfully",
@@ -862,184 +863,46 @@ curl -i -X POST http://54.85.251.3:1338/services/get_challengesHistory
 OR
 
 {
-   "status":0,
-   "message":"Challenges Fetched Successfully",
-   "bytes":[
-      {
-         "status":"F",
-         "users":[
-            {
-               "username":"2885528751",
-               "name":"Manish Law",
-               "is_active":true,
-               "id":"57054e1bba521b36361aeca2",
-               "created_on":"2016-04-08T00:51:31.932000",
-               "last_login":"2016-04-07T19:21:57.145000",
-               "email":"manishlaw@gmail.com",
-               "date_joined":"2016-04-07T19:21:57.145000"
-            }
-         ],
-         "expireAt":"9999-12-31T23:59:59.999000",
-         "startingAt":"2016-04-08T00:51:31.933000",
-         "created_on":"2016-04-08T00:51:31.933000",
-         "created_by":{
-            "username":"1499495072",
-            "name":"Public User",
-            "is_active":true,
-            "id":"57054e1bba521b36361aeca1",
-            "created_on":"2016-04-08T00:51:31.932000",
-            "last_login":"2016-04-07T19:21:57.053000",
-            "email":"public@gmail.com",
-            "date_joined":"2016-04-07T19:21:57.053000"
-         },
-         "accomplished":"F",
-         "id":"5706b3553b04987ef7d8827b",
-         "goal":{
-            "tracking_variable":"steps",
-            "generated_by":"S",
-            "type_of_goal":"S",
-            "condition":100,
-            "id":"5706b3553b04987ef7d88278",
-            "achievement":{
-               "id":"5706b3553b04987ef7d88277",
-               "name":"Bronze"
-            }
-         }
-      }
-   ]
+  "status": 0,
+  "message": "Challenges History Fetched Successfully",
+  "bytes": [
+    {
+      "goal": {
+        "tracking_variable": "steps",
+        "type_of_goal": "S",
+        "generated_by": "S",
+        "condition": 100,
+        "text": "Reach a target",
+        "achievement": 1,
+        "createdAt": "2016-07-16T12:33:52.239Z",
+        "updatedAt": "2016-07-16T12:33:52.239Z",
+        "id": 1
+      },
+      "status": "P",
+      "accomplished": "U",
+      "created_by": "zafeer",
+      "createdAt": "2016-07-16T12:29:32.654Z",
+      "users": [
+        "zafeer",
+        "manish"
+      ],
+      "startingAt": "2016-07-16T12:29:28.636Z",
+      "expireAt": "2016-07-16T12:29:28.636Z",
+      "updatedAt": "2016-07-16T12:29:32.667Z",
+      "id": 2
+    }
+  ]
 }
 
 OR
 
-{
-   "status":0,
-   "message":"Challenges Fetched Successfully",
-   "bytes":[
-      {
-         "status":"F",
-         "users":[
-            {
-               "username":"2885528751",
-               "name":"Manish Law",
-               "is_active":true,
-               "id":"57054e1bba521b36361aeca2",
-               "created_on":"2016-04-08T00:51:31.932000",
-               "last_login":"2016-04-07T19:21:57.145000",
-               "email":"manishlaw@gmail.com",
-               "date_joined":"2016-04-07T19:21:57.145000"
-            }
-         ],
-         "expireAt":"9999-12-31T23:59:59.999000",
-         "startingAt":"2016-04-08T00:51:31.933000",
-         "created_on":"2016-04-08T00:51:31.933000",
-         "created_by":{
-            "username":"1499495072",
-            "name":"Public User",
-            "is_active":true,
-            "id":"57054e1bba521b36361aeca1",
-            "created_on":"2016-04-08T00:51:31.932000",
-            "last_login":"2016-04-07T19:21:57.053000",
-            "email":"public@gmail.com",
-            "date_joined":"2016-04-07T19:21:57.053000"
-         },
-         "accomplished":"F",
-         "id":"5706b3553b04987ef7d8827b",
-         "goal":{
-            "tracking_variable":"steps",
-            "generated_by":"S",
-            "type_of_goal":"S",
-            "condition":100,
-            "id":"5706b3553b04987ef7d88278",
-            "achievement":{
-               "id":"5706b3553b04987ef7d88275",
-               "name":"Gold"
-            }
-         }
-      },
-      {
-         "status":"F",
-         "users":[
-            {
-               "username":"2885528751",
-               "name":"Manish Law",
-               "is_active":true,
-               "id":"57054e1bba521b36361aeca2",
-               "created_on":"2016-04-08T00:51:31.932000",
-               "last_login":"2016-04-07T19:21:57.145000",
-               "email":"manishlaw@gmail.com",
-               "date_joined":"2016-04-07T19:21:57.145000"
-            }
-         ],
-         "expireAt":"9999-12-31T23:59:59.999000",
-         "startingAt":"2016-04-08T01:18:50.968000",
-         "created_on":"2016-04-08T01:18:43.751000",
-         "created_by":{
-            "username":"2885528751",
-            "name":"Manish Law",
-            "is_active":true,
-            "id":"57054e1bba521b36361aeca2",
-            "created_on":"2016-04-08T00:51:31.932000",
-            "last_login":"2016-04-07T19:21:57.145000",
-            "email":"manishlaw@gmail.com",
-            "date_joined":"2016-04-07T19:21:57.145000"
-         },
-         "accomplished":"F",
-         "id":"5706b9a43b04983dbb26abc2",
-         "goal":{
-            "tracking_variable":"steps",
-            "generated_by":"S",
-            "type_of_goal":"S",
-            "condition":100,
-            "id":"5706b3553b04987ef7d88278",
-            "achievement":{
-               "id":"5706b3553b04987ef7d88275",
-               "name":"Gold"
-            }
-         }
-      },
-      {
-         "status":"F",
-         "users":[
-            {
-               "username":"2885528751",
-               "name":"Manish Law",
-               "is_active":true,
-               "id":"57054e1bba521b36361aeca2",
-               "created_on":"2016-04-08T00:51:31.932000",
-               "last_login":"2016-04-07T19:21:57.145000",
-               "email":"manishlaw@gmail.com",
-               "date_joined":"2016-04-07T19:21:57.145000"
-            }
-         ],
-         "expireAt":"9999-12-31T23:59:59.999000",
-         "startingAt":"2016-04-08T01:31:01.726000",
-         "created_on":"2016-04-08T01:31:01.721000",
-         "created_by":{
-            "username":"2885528751",
-            "name":"Manish Law",
-            "is_active":true,
-            "id":"57054e1bba521b36361aeca2",
-            "created_on":"2016-04-08T00:51:31.932000",
-            "last_login":"2016-04-07T19:21:57.145000",
-            "email":"manishlaw@gmail.com",
-            "date_joined":"2016-04-07T19:21:57.145000"
-         },
-         "accomplished":"F",
-         "id":"5706bc7d3b04985901510391",
-         "goal":{
-            "tracking_variable":"steps",
-            "generated_by":"S",
-            "type_of_goal":"S",
-            "condition":500,
-            "id":"5706b3553b04987ef7d88279",
-            "achievement":{
-               "id":"5706b3553b04987ef7d88276",
-               "name":"Silver"
-            }
-         }
-      }
-   ]
+
+{  
+   "status":1,
+   "message":"Error in Getting Challenges History!!",
+   "bytes":""
 }
+
 
 ```
 
@@ -1050,7 +913,6 @@ OR
 ### Url Parameters
 Parameter | Default | Required | Type | Description
 --------- | ------- | -------- | ---- | -----------
-userId |  | True | String | username of User DB.
 
 ### Data Parameters
 Parameter | Default | Required | Type | Description
